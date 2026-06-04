@@ -19,10 +19,22 @@ public struct URLSessionTransport: HTTPTransport {
     }
 
     public func send(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
-        let (data, response) = try await session.data(for: request)
-        guard let http = response as? HTTPURLResponse else {
-            throw URLError(.badServerResponse)
+        // Continuation-wrapped dataTask rather than `session.data(for:)`: the async
+        // overload is unavailable in swift-corelibs-foundation (Linux), so this keeps
+        // the transport portable across Darwin + Linux.
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<(Data, HTTPURLResponse), Error>) in
+            let task = session.dataTask(with: request) { data, response, error in
+                if let error {
+                    continuation.resume(throwing: error)
+                    return
+                }
+                guard let http = response as? HTTPURLResponse else {
+                    continuation.resume(throwing: URLError(.badServerResponse))
+                    return
+                }
+                continuation.resume(returning: (data ?? Data(), http))
+            }
+            task.resume()
         }
-        return (data, http)
     }
 }

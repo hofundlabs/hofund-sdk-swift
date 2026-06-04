@@ -1,5 +1,6 @@
 // Parity fixtures (port contract §9.2 classes a, b, c) — pure helpers, no HTTP.
 
+import Foundation
 import XCTest
 @testable import HofundSDK
 
