@@ -1,6 +1,6 @@
 // Maps a protocol_version to the body key its server-side validator expects.
 // Keep in sync with PROTOCOL_REGISTRY in apps/web/src/lib/event-validators.ts and
-// payloadKeyForProtocol in @hofund/sdk-ts (port contract §1.6).
+// payloadKeyForProtocol in @hofundlabs/sdk-ts (port contract §1.6).
 
 import Foundation
 

@@ -1,7 +1,7 @@
 # HofundSDK (sdk-swift)
 
 Swift SDK for the **Hofund Mirror** platform — consent ledger + behavioral/operational
-event ingestion. A native port of [`@hofund/sdk-ts`](../sdk-ts), wire-compatible with
+event ingestion. A native port of [`@hofundlabs/sdk-ts`](../sdk-ts), wire-compatible with
 **contract version 0.8.0** (`CONTRACT_VERSION`).
 
 > Targets the **Hofund Mirror** API (`https://sdk.hofundlabs.com`) — the first-party
@@ -81,7 +81,7 @@ swift test
 ```
 
 Tests use an injected `MockTransport` (no network) and are **golden-fixture parity tests**
-mirroring the `@hofund/sdk-ts` unit tests — they assert the emitted request JSON, backoff
+mirroring the `@hofundlabs/sdk-ts` unit tests — they assert the emitted request JSON, backoff
 math, `payloadKeyForProtocol`, idempotency-key reuse, and error mapping all match the TS
 reference. The transport seam is `HTTPTransport`; the default is `URLSessionTransport`.
 

@@ -1,6 +1,6 @@
 // HofundSDK — Swift port of the Hofund Mirror client.
 //
-// Wire-compatible with @hofund/sdk-ts (CONTRACT_VERSION). An `actor` so a single
+// Wire-compatible with @hofundlabs/sdk-ts (CONTRACT_VERSION). An `actor` so a single
 // instance is safe to share across tasks. Retry + idempotency are hand-rolled in
 // `request()` (not delegated) so the dedupe contract matches sdk-ts exactly.
 //
