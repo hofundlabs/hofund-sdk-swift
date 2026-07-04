@@ -20,7 +20,7 @@ no Swift toolchain on the authoring machine, so CI is the build gate.
 ```swift
 // Package.swift
 dependencies: [
-    .package(url: "https://github.com/thnqbig/hofundlabs_sdk", from: "0.8.0"),
+    .package(url: "https://github.com/hofundlabs/hofundlabs_sdk", from: "0.8.0"),
 ],
 // then add product "HofundSDK" to your target's dependencies
 ```
